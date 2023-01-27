@@ -3,47 +3,23 @@
     {
       "id": 0,
       "name": "Poulet coco",
-      "nb_part": 4,
+      "nb_part": "5",
       "description": "Poulet au lait de Coco avec du riz et gambas.",
       "link": "https://www.youtube.com",
       "ingredients": [
         {
           "name": "Poulet",
-          "quantity": 1,
+          "quantity": "1",
           "unit": "kg"
         },
         {
           "name": "Lait de coco",
-          "quantity": 250,
+          "quantity": "650",
           "unit": "ml"
         },
         {
           "name": "Riz",
-          "quantity": 1,
-          "unit": "kg"
-        }
-      ]
-    },
-    {
-      "id": 0,
-      "name": "Poulet gingembre",
-      "nb_part": 4,
-      "description": "Poulet au Gingembre avec du riz et gambas.",
-      "link": "https://www.youtube.com",
-      "ingredients": [
-        {
-          "name": "Poulet",
-          "quantity": 1,
-          "unit": "kg"
-        },
-        {
-          "name": "Gingembre",
-          "quantity": 250,
-          "unit": "g"
-        },
-        {
-          "name": "Riz",
-          "quantity": 1,
+          "quantity": "1",
           "unit": "kg"
         }
       ]
@@ -60,7 +36,7 @@
           "unit": "g"
         }
       ],
-      "id": 2
+      "id": 3
     },
     {
       "name": "Tomate Mozza",
@@ -79,7 +55,50 @@
           "unit": "g"
         }
       ],
-      "id": 3
+      "id": 4
+    },
+    {
+      "name": "Poulet gingembre",
+      "nb_part": "4",
+      "description": "Poulet au Gingembre avec du riz et gambas",
+      "link": "https://www.youtube.com",
+      "ingredients": [
+        {
+          "name": "Poulet",
+          "quantity": "1",
+          "unit": "kg"
+        },
+        {
+          "name": "Gingembre",
+          "quantity": "250",
+          "unit": "g"
+        },
+        {
+          "name": "Riz",
+          "quantity": "1",
+          "unit": "kg"
+        }
+      ],
+      "id": 5
+    },
+    {
+      "name": "Patates Sautées",
+      "nb_part": "2",
+      "description": "patates à la poele",
+      "link": "youtube.fr",
+      "ingredients": [
+        {
+          "name": "patates",
+          "quantity": "4",
+          "unit": "unité"
+        },
+        {
+          "name": "huile d'olive",
+          "quantity": "2",
+          "unit": "cas"
+        }
+      ],
+      "id": 6
     }
   ]
 }

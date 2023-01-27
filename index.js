@@ -63,7 +63,7 @@ function init(){
 * Traiter le formulaire et envoyer une nouvelle citation vers le serveur
 */
 function validerMessage(){
-    let id = uniqId;
+    let id = uniqId; 
     let name = document.querySelector("#name").value;
     let nb_part = document.querySelector("#nb_part").value;
     let description = document.querySelector("#description").value;
@@ -85,7 +85,7 @@ function validerMessage(){
             }) 
         }
     }
-    
+
     let objet = {
         "id": id,
         "name": name,
@@ -95,6 +95,41 @@ function validerMessage(){
         "ingredients": ingredient,
     }
     callServeur(url, objet, 'POST');
+}
+
+function validUpdate(id) {
+    let name = document.querySelector("#name").value;
+    let nb_part = document.querySelector("#nb_part").value;
+    let description = document.querySelector("#description").value;
+    let link = document.querySelector("#link").value;
+    let ingredient= [];
+    let nombreIngredient = $("#nombreIngredient").val();
+    for (let index = 1; index <= nombreIngredient; index++) {
+        if (index !== nombreIngredient) {
+            ingredient.push({
+                "name" :  document.querySelector("#ingName_" + index).value,
+                "quantity" : document.querySelector("#quantity_"+ index).value,
+                "unit" : document.querySelector("#unit_"+ index).value,
+            },)
+        } else {
+            ingredient.push({
+                "name" :  document.querySelector("#ingName_" + index).value,
+                "quantity" : document.querySelector("#quantity_"+ index).value,
+                "unit" : document.querySelector("#unit_"+ index).value,
+            }) 
+        }
+    }
+
+    let objet = {
+        "id": id,
+        "name": name,
+        "nb_part": nb_part,
+        "description" : description,
+        "link" : link,
+        "ingredients": ingredient,
+    }
+
+    callServeur(url + '/' + id, objet, 'PUT');
 }
 
 /*
@@ -126,28 +161,41 @@ function ajouterIngredient(){
 }
 
 function editReceipe(id) {
-    $('#titleAjoutCard').html('Modifier une recette');
-    $('#updateButtons').css('display', 'flex');
-    $('#postButton').css('display', 'none');
+    fetch(url + "/" + id)
+    .then((response) => response.json())
+    .then((receipe) => {
+        $('#titleAjoutCard').html('Modifier une recette');
+        $('#updateButtons').css('display', 'flex');
+        $('#postButton').css('display', 'none');
+        //console.log(receipe["name"]);
+        $('#name').val(receipe["name"]);
+        $('#nb_part').val(receipe["nb_part"]);
+        $('#description').val(receipe["description"]);
+        $('#link').val(receipe["link"]);
 
-    $('#name').val(receipes[id]["name"]);
-    $('#nb_part').val(receipes[id]["nb_part"]);
-    $('#description').val(receipes[id]["description"]);
-    $('#link').val(receipes[id]["link"]);
+        let html = '';
+        html += '<input class="button d-flex m-auto col-6 align-items-center justify-content-center" id="postButton" type="button" value="Annuler" onclick="cancelUpdate()">';
+        html += '<input class="button d-flex m-auto col-6 align-items-center justify-content-center" id="postButton" type="button" value="Modifier" onclick="validUpdate('+id+')"></input>';
+        let affichage = document.querySelector("#updateButtons");
+        affichage.innerHTML=html;
 
-    let ingredient= receipes[id]["ingredients"];
-    $('#nombreIngredient').val(ingredient.length);
-    console.log(ingredient.length);
-    ajouterIngredient(ingredient.length);
-    let count =1;
-    for (let index = 0; index < ingredient.length; index++) {
-        console.log(receipes[id].ingredients[index]);
-        $('#ingName_'+ count).val(receipes[id].ingredients[index]['name']);
-        $('#quantity_'+ count).val(receipes[id].ingredients[index]['quantity']);
-        $('#unit_'+ count).val(receipes[id].ingredients[index]['unit']);
+        
+        
 
-        count++;
-    }
+        let ingredient= receipe["ingredients"];
+        $('#nombreIngredient').val(ingredient.length);
+        //console.log( 'r : ' + ingredient.length);
+        ajouterIngredient(ingredient.length);
+        let count =1;
+        for (let index = 0; index < ingredient.length; index++) {
+            $('#ingName_'+ count).val(receipe.ingredients[index]['name']);
+            $('#quantity_'+ count).val(receipe.ingredients[index]['quantity']);
+            $('#unit_'+ count).val(receipe.ingredients[index]['unit']);
+
+            count++;
+        }
+    });
+    
 }
 
 function cancelUpdate() {
@@ -156,7 +204,7 @@ function cancelUpdate() {
     $('#postButton').css('display', 'flex');
     $('.formEdit').val('');
     $('#nombreIngredient').val(0);
-    $('#ingredients').css('display', 'none');
+    ajouterIngredient(0);
 }
 
 function deleteReceipe(id) {
