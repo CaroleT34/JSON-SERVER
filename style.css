@@ -1,0 +1,53 @@
+html {
+    font-weight: bolder;
+    font-family: Arial;
+}
+
+body {
+    height : 500px;
+}
+
+nav {
+    width: 400px;
+    float: left;
+    margin-left: 10px;
+}
+
+
+main {
+    width:  calc(100% - 410px);
+}
+
+#nombreIngredient {
+    max-width: 35%!important;
+}
+
+#affichage {
+    min-width: 400px;
+}
+
+.receipesCard {
+    margin: 2em 0.1em;
+    padding: 20px;
+    min-width: 300px!important;
+    min-height: 580px!important;
+}
+
+.card-body {
+    width: 85%;
+}
+
+@media screen and (max-width: 800px){
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+#updateButtons {
+    display: none;
+}
+
+#postButton {
+    display: flex;
+}

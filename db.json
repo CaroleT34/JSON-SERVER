@@ -1,0 +1,85 @@
+{
+  "receipes": [
+    {
+      "id": 0,
+      "name": "Poulet coco",
+      "nb_part": 4,
+      "description": "Poulet au lait de Coco avec du riz et gambas.",
+      "link": "https://www.youtube.com",
+      "ingredients": [
+        {
+          "name": "Poulet",
+          "quantity": 1,
+          "unit": "kg"
+        },
+        {
+          "name": "Lait de coco",
+          "quantity": 250,
+          "unit": "ml"
+        },
+        {
+          "name": "Riz",
+          "quantity": 1,
+          "unit": "kg"
+        }
+      ]
+    },
+    {
+      "id": 0,
+      "name": "Poulet gingembre",
+      "nb_part": 4,
+      "description": "Poulet au Gingembre avec du riz et gambas.",
+      "link": "https://www.youtube.com",
+      "ingredients": [
+        {
+          "name": "Poulet",
+          "quantity": 1,
+          "unit": "kg"
+        },
+        {
+          "name": "Gingembre",
+          "quantity": 250,
+          "unit": "g"
+        },
+        {
+          "name": "Riz",
+          "quantity": 1,
+          "unit": "kg"
+        }
+      ]
+    },
+    {
+      "name": "Dall",
+      "nb_part": "2",
+      "description": "Lentilles Corailles",
+      "link": "https://www.recettes.fr",
+      "ingredients": [
+        {
+          "name": "Dall",
+          "quantity": "250",
+          "unit": "g"
+        }
+      ],
+      "id": 2
+    },
+    {
+      "name": "Tomate Mozza",
+      "nb_part": "1",
+      "description": "tomate et mozza frais",
+      "link": "http://google.fr",
+      "ingredients": [
+        {
+          "name": "Tomate",
+          "quantity": "1",
+          "unit": "unité"
+        },
+        {
+          "name": "Mozza",
+          "quantity": "200",
+          "unit": "g"
+        }
+      ],
+      "id": 3
+    }
+  ]
+}
